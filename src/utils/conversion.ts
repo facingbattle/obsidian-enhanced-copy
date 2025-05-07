@@ -146,7 +146,8 @@ function removeMarkdownFootNotes(markdown: string, overrides: GlobalSettings): s
  */
 function removeHighlightMark(markdown: string, settings: GlobalSettings): string {
 	if (settings.highlight) {
-		return markdown.replace(/==([^=]+)==/g, "$1");
+		// return markdown.replace(/==([^=]+)==/g, "$1");
+		return markdown.replace(/==([^=](?:==(?!=)|[^=])*)==/g, "*$1*")
 	}
 	return markdown;
 }
